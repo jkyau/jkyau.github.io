@@ -1,67 +1,395 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jason K Yau</title>
+<meta name="description" content="Jason Yau is Chief Business Officer and Chief of Staff to Marc Benioff at Salesforce. Three-time CTO who helped pioneer direct-to-consumer commerce and music streaming.">
+<meta name="author" content="Jason K Yau">
+<link rel="canonical" href="https://jkyau.com/">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://jkyau.com/">
+<meta property="og:title" content="Jason Yau">
+<meta property="og:description" content="Chief Business Officer and Chief of Staff to Marc Benioff at Salesforce. Three-time CTO. Helped pioneer direct-to-consumer commerce and music streaming.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jasonkevinyau">
+<meta name="twitter:title" content="Jason Yau">
+<meta name="twitter:description" content="Chief Business Officer and Chief of Staff to Marc Benioff at Salesforce. Three-time CTO.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jason Yau",
+  "alternateName": "Jason K Yau",
+  "url": "https://jkyau.com/",
+  "jobTitle": "Chief Business Officer and Chief of Staff to the CEO",
+  "worksFor": { "@type": "Organization", "name": "Salesforce", "url": "https://www.salesforce.com" },
+  "homeLocation": { "@type": "Place", "name": "Waimea, Hawaii" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of California San Diego" },
+  "sameAs": [
+    "https://www.linkedin.com/in/jkyau",
+    "https://twitter.com/jasonkevinyau",
+    "https://www.instagram.com/jkyau/",
+    "https://github.com/jkyau"
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one calm left-aligned column that reads like a well-set résumé: thesis, proof, story, then the record grouped by era. */
+:root {
+  /* Upcountry palette: misty pasture, lava rock, ranchland green */
+  --bg: #f1f0e9;
+  --surface: #faf9f4;
+  --ink: #26231e;
+  --muted: #6b6658;
+  --line: #dcd8cb;
+  --accent: #4d6a38;
+  --accent-soft: #e2e8d6;
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b1916; --surface: #24211d; --ink: #eee9df; --muted: #a8a090;
+    --line: #36322b; --accent: #a5bd86; --accent-soft: #283220; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1b1916; --surface: #24211d; --ink: #eee9df; --muted: #a8a090;
+  --line: #36322b; --accent: #a5bd86; --accent-soft: #283220; color-scheme: dark;
+}
 
-    <title>Jason K Yau</title>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration-color: var(--line); text-underline-offset: 3px; text-decoration-thickness: 1px; transition: text-decoration-color .15s, color .15s; }
+a:hover { text-decoration-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+.wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+  padding-block: 64px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
 
-    <!-- Custom styles for this template -->
-    <link href="css/cover.css" rel="stylesheet">
-  </head>
+/* Header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.mark {
+  font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: .02em;
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--line); background: var(--surface);
+  text-decoration: none;
+}
+.top nav { display: flex; gap: 20px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
+.top nav a { text-decoration: none; }
+.top nav a:hover { color: var(--ink); }
 
-  <body>
+/* Hero */
+.hero { display: flex; flex-direction: column; gap: 20px; }
+.eyebrow {
+  font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted);
+  display: flex; align-items: center; gap: 10px;
+}
+.eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(44px, 8vw, 76px); line-height: 1.02; letter-spacing: -0.03em;
+  margin: 0; text-wrap: balance;
+}
+.role { font-family: var(--font-display); font-weight: 500; font-size: clamp(19px, 2.6vw, 24px); line-height: 1.4; margin: 0; max-width: 34ch; text-wrap: balance; }
+.role a { text-decoration-color: var(--accent); }
+.lede { color: var(--muted); margin: 0; max-width: 58ch; font-size: 17px; }
+.highlights {
+  list-style: none; margin: 12px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.highlights li { display: flex; flex-direction: column; gap: 6px; padding: 20px 20px 20px 0; min-width: 0; }
+.highlights li + li { padding-left: 20px; border-left: 1px solid var(--line); }
+.highlights strong { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.15; letter-spacing: -0.01em; }
+.highlights li:first-child strong { color: var(--accent); }
+.highlights span { color: var(--muted); font-size: 14px; line-height: 1.5; }
+.featured { margin: 0; font-size: 14px; color: var(--muted); }
+.featured a { color: var(--ink); font-weight: 500; text-decoration-color: var(--accent); }
 
-    <div class="site-wrapper">
+/* Sections */
+section { display: grid; grid-template-columns: 150px 1fr; gap: 24px 40px; }
+section > h2 {
+  font-family: var(--font-mono); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); margin: 6px 0 0;
+}
+section > .body { min-width: 0; }
+.body p { margin: 0 0 14px; max-width: 62ch; }
+.body p:last-child { margin-bottom: 0; }
 
-      <div class="site-wrapper-inner">
+/* Focus */
+.focus { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; }
+.focus li { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.focus strong { font-family: var(--font-display); font-weight: 600; font-size: 17px; }
+.focus span { color: var(--muted); font-size: 15px; line-height: 1.55; }
 
-        <div class="cover-container">
+/* Experience, grouped by era */
+.eras { display: flex; flex-direction: column; gap: 40px; }
+.era { display: flex; flex-direction: column; gap: 4px; }
+.era-h {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--ink);
+  margin: 0 0 4px;
+}
+.era-h h3 { font-family: var(--font-display); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; margin: 0; }
+.era-h span { font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand"></h3>
-            </div>
-          </div>
+.roles { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.roles > li { padding: 16px 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; }
+.roles > li:first-child { border-top: 0; }
+.co-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.co { font-family: var(--font-display); font-weight: 600; font-size: 19px; margin: 0; }
+.yrs { font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.now .co::after {
+  content: "Current"; font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  margin-left: 10px; padding: 2px 8px; border-radius: 999px; vertical-align: 3px;
+  background: var(--accent-soft); color: var(--accent);
+}
+.titles { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.titles li { display: flex; justify-content: space-between; gap: 16px; font-size: 15px; }
+.titles li .t { font-weight: 500; }
+.titles li .y { font-family: var(--font-mono); font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 2px; }
+.titles li + li .t { color: var(--muted); font-weight: 400; }
+.note { margin: 4px 0 0; font-size: 15px; max-width: 60ch; }
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Jason Yau</h1>
-            <p class="lead"><a href="https://www.salesforce.com/news/stories/jason-yau-joins-salesforce/">Chief Business Officer, Chief of Staff to Marc Benioff @ Salesforce</a></p> 
-            <p>Three-time CTO. Proud husband and father of 2 boys.</p>
-            <p>
-              <a href="https://www.linkedin.com/in/jkyau" target="_blank" class="">Linkedin</a> | <a href="https://www.instagram.com/jkyau/" target="_blank" class="">Instagram</a> | <a href="https://twitter.com/jasonkevinyau" target="_blank" class="">X</a>
-            </p>
-          </div>
+.early { display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid var(--line); }
+.early h3 { margin: 0; font-family: var(--font-mono); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; }
+.early h3 span { font-variant-numeric: tabular-nums; }
+.early ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 15px; color: var(--muted); }
+.early strong { color: var(--ink); font-weight: 600; margin-right: 4px; }
+.early .y { font-family: var(--font-mono); font-size: 12px; margin-left: 6px; font-variant-numeric: tabular-nums; }
+.body p.edu { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
 
-          <div class="mastfoot">
-           <div class="inner">
-             <p>Be a light ☀️</p>
-           </div>
-         </div>
+/* Quote */
+blockquote {
+  margin: 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent);
+  font-family: var(--font-display); font-weight: 500; font-size: 21px; line-height: 1.45; text-wrap: balance;
+}
+blockquote cite { display: block; margin-top: 10px; font-family: var(--font-body); font-style: normal; font-size: 14px; color: var(--muted); font-weight: 400; }
 
-        </div>
+/* Press */
+.press { display: flex; flex-direction: column; gap: 28px; }
+.release {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 20px 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface);
+  text-decoration: none; transition: border-color .15s, transform .15s;
+}
+.release:hover { border-color: var(--accent); transform: translateY(-1px); }
+.release .src { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.release strong { font-family: var(--font-display); font-weight: 600; font-size: 19px; line-height: 1.35; text-wrap: balance; }
+.release .more { font-size: 14px; font-weight: 500; color: var(--accent); }
 
+/* Links */
+.links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.links a {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+  font-size: 14px; font-weight: 500; text-decoration: none;
+}
+.links a:hover { border-color: var(--accent); }
+.links small { font-family: var(--font-mono); color: var(--muted); font-size: 12px; font-weight: 400; }
+
+footer {
+  display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px;
+  padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px;
+}
+footer .light { font-family: var(--font-display); font-weight: 600; color: var(--ink); display: inline-flex; align-items: center; gap: 8px; }
+footer .light::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+@media (max-width: 640px) {
+  .wrap { padding-block: 40px 32px; gap: 60px; }
+  section { grid-template-columns: 1fr; gap: 16px; }
+  section > h2 { margin: 0; }
+  .top nav { gap: 14px; }
+  .highlights { grid-template-columns: 1fr; }
+  .highlights li, .highlights li + li { padding: 16px 0; border-left: 0; }
+  .highlights li + li { border-top: 1px solid var(--line); }
+  .focus { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top" aria-label="Jason K Yau, home">JY</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#advisory">Advisory</a>
+      <a href="#press">Press</a>
+      <a href="#elsewhere">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="top">
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span>Waimea, Hawai&#699;i &middot; Salesforce</div>
+    <h1>Jason Yau</h1>
+    <p class="role">Chief Business Officer and Chief of Staff to Marc Benioff at <a href="https://www.salesforce.com/news/stories/jason-yau-joins-salesforce/">Salesforce</a>.</p>
+    <p class="lede">I helped pioneer direct-to-consumer commerce and music streaming. Today I help the world's largest companies put AI and data to work.</p>
+    <ul class="highlights" aria-label="Highlights">
+      <li><strong>3&times; CTO</strong><span>Shopify, Dollar Shave Club and Authentic Brands Group</span></li>
+      <li><strong>Direct to consumer</strong><span>Pioneered DTC and scaled the technology behind DTC brands and enterprise commerce</span></li>
+      <li><strong>Music streaming</strong><span>Early builder of streaming at Beats Music and Apple Music</span></li>
+    </ul>
+    <p class="featured">Featured in the <a href="https://www.salesforce.com/news/stories/jason-yau-joins-salesforce/">Salesforce Newsroom</a></p>
+  </div>
+
+  <section id="about" aria-labelledby="about-h">
+    <h2 id="about-h">About</h2>
+    <div class="body">
+      <p>I'm an engineer by training. Early on, I helped pioneer music streaming at Beats Music and carried that work into Apple Music. From there I helped pioneer direct-to-consumer commerce at Dollar Shave Club, and I've since been CTO three times: at Dollar Shave Club, at Authentic Brands Group, and as Global Enterprise CTO at Shopify, where I worked with some of the biggest brands in commerce.</p>
+      <p>My years at Apple and Beats, at the intersection of product and culture, still shape how I build: design first.</p>
+      <p>I joined Salesforce in 2024 as an Architect in the Office of the CEO, working with Fortune 500 customers across industries. Today I serve as Chief Business Officer and Chief of Staff to Marc Benioff, leading the Office of the CEO and helping shape company-wide priorities and Salesforce's approach to trusted AI and data.</p>
+      <p>Outside of work, I'm a proud husband and father of two boys and a baby girl.</p>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience</h2>
+    <div class="body eras">
+
+      <div class="era">
+        <div class="era-h"><h3>Enterprise &amp; AI</h3><span>2024 – Now</span></div>
+        <ul class="roles">
+          <li class="now">
+            <div class="co-row"><p class="co">Salesforce</p><span class="yrs">2024 – Now</span></div>
+            <ul class="titles">
+              <li><span class="t">Chief Business Officer &amp; Chief of Staff to the CEO</span><span class="y">2025 – Now</span></li>
+              <li><span class="t">SVP &amp; Architect, Office of the CEO</span><span class="y">2024 – 2025</span></li>
+            </ul>
+            <p class="note">Leads the Office of the CEO: shaping company-wide strategic priorities, driving executive alignment and advancing Salesforce's approach to trusted AI and data. Joined to partner with Fortune 500 customers across industries on their AI transformations.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="era">
+        <div class="era-h"><h3>Commerce &amp; Direct to Consumer</h3><span>2016 – 2024</span></div>
+        <ul class="roles">
+          <li>
+            <div class="co-row"><p class="co">Authentic Brands Group</p><span class="yrs">2023 – 2024</span></div>
+            <ul class="titles"><li><span class="t">Chief Technology Officer</span></li></ul>
+            <p class="note">Seconded from Shopify as CTO, serving concurrently as Shopify's Global Enterprise CTO. Drove omni-channel innovation across ABG's SPARC portfolio of iconic retail brands, including Reebok, Brooks Brothers and Lucky Brand.</p>
+          </li>
+          <li>
+            <div class="co-row"><p class="co">Shopify</p><span class="yrs">2020 – 2024</span></div>
+            <ul class="titles">
+              <li><span class="t">Global Enterprise CTO</span></li>
+            </ul>
+            <p class="note">Built and scaled global commerce for Shopify's largest enterprise merchants, leading B2C and commerce transformations and bringing direct-to-consumer capabilities to brands at every scale.</p>
+          </li>
+          <li>
+            <div class="co-row"><p class="co">Dollar Shave Club</p><span class="yrs">2016 – 2020</span></div>
+            <ul class="titles">
+              <li><span class="t">Chief Technology Officer</span></li>
+            </ul>
+            <p class="note">Helped pioneer the direct-to-consumer model, building the technology behind one of the first breakout DTC brands.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="era">
+        <div class="era-h"><h3>Music Streaming</h3><span>2012 – 2016</span></div>
+        <ul class="roles">
+          <li>
+            <div class="co-row"><p class="co">Apple</p><span class="yrs">2014 – 2016</span></div>
+            <ul class="titles"><li><span class="t">Senior Engineering Manager</span></li></ul>
+            <p class="note">Joined through Apple's acquisition of Beats and carried that streaming work into Apple Music, at the intersection of product and culture.</p>
+          </li>
+          <li>
+            <div class="co-row"><p class="co">Beats Music</p><span class="yrs">2012 – 2014</span></div>
+            <ul class="titles"><li><span class="t">Director of Engineering</span></li></ul>
+            <p class="note">Helped pioneer music streaming, building the service that became the foundation of Apple Music.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="early">
+        <h3>Early career <span>2002 – 2012</span></h3>
+        <ul>
+          <li><strong>Samsung</strong> Director of Engineering <span class="y">2010 – 12</span></li>
+          <li><strong>Yahoo!</strong> <span class="y">2007 – 10</span></li>
+          <li><strong>Qualcomm</strong> Engineering Intern <span class="y">2002 – 07</span></li>
+        </ul>
       </div>
 
     </div>
+  </section>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+  <section id="advisory" aria-labelledby="adv-h">
+    <h2 id="adv-h">Advisory &amp; Community</h2>
+    <div class="body">
+      <ul class="focus">
+        <li><strong>Menlo Ventures</strong><span>Advisory board</span></li>
+        <li><strong>Glynn Capital</strong><span>Advisory board</span></li>
+        <li><strong>Waimea Middle School</strong><span>Mentor, focused on early exposure to math and computer science</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education" aria-labelledby="edu-h">
+    <h2 id="edu-h">Education</h2>
+    <div class="body">
+      <div class="co-row"><p class="co">University of California San Diego</p></div>
+      <p class="edu">B.S., Computer Science and Engineering</p>
+    </div>
+  </section>
+
+  <section id="press" aria-labelledby="press-h">
+    <h2 id="press-h">Press</h2>
+    <div class="body press">
+      <a class="release" href="https://www.salesforce.com/news/stories/jason-yau-joins-salesforce/">
+        <span class="src">Salesforce Newsroom &middot; April 2024</span>
+        <strong>Salesforce Hires Former Shopify Enterprise CTO Jason Yau to Help Global Brands Transform with #1 AI CRM</strong>
+        <span class="more">Read the announcement &rarr;</span>
+      </a>
+      <blockquote>
+        &ldquo;It's a pivotal time for enterprise technology. Every brand is looking to harness the power of AI and data at scale.&rdquo;
+        <cite>From the announcement</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="elsewhere" aria-labelledby="else-h">
+    <h2 id="else-h">Elsewhere</h2>
+    <div class="body">
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/jkyau">LinkedIn <small>/in/jkyau</small></a></li>
+        <li><a href="https://twitter.com/jasonkevinyau">X <small>@jasonkevinyau</small></a></li>
+        <li><a href="https://www.instagram.com/jkyau/">Instagram <small>@jkyau</small></a></li>
+        <li><a href="https://github.com/jkyau">GitHub <small>jkyau</small></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <span class="light">Be a light.</span>
+    <span>&copy; 2026 Jason K Yau &middot; Waimea, Big Island</span>
+  </footer>
+</div>
+</body>
 </html>
