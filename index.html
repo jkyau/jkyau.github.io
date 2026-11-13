@@ -54,6 +54,7 @@
   --line: #dcd8cb;
   --accent: #4d6a38;
   --accent-soft: #e2e8d6;
+  --sun: #d99a1e;
   --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -61,12 +62,12 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #1b1916; --surface: #24211d; --ink: #eee9df; --muted: #a8a090;
-    --line: #36322b; --accent: #a5bd86; --accent-soft: #283220; color-scheme: dark;
+    --line: #36322b; --accent: #a5bd86; --accent-soft: #283220; --sun: #f2bd52; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #1b1916; --surface: #24211d; --ink: #eee9df; --muted: #a8a090;
-  --line: #36322b; --accent: #a5bd86; --accent-soft: #283220; color-scheme: dark;
+  --line: #36322b; --accent: #a5bd86; --accent-soft: #283220; --sun: #f2bd52; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -235,7 +236,57 @@ footer {
   padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px;
 }
 footer .light { font-family: var(--font-display); font-weight: 600; color: var(--ink); display: inline-flex; align-items: center; gap: 8px; }
-footer .light::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+/* "Be a light": a small warm sun that glows softly */
+footer .light::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--sun); box-shadow: 0 0 0 0 color-mix(in srgb, var(--sun) 45%, transparent); animation: glow 4s ease-in-out infinite; }
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--sun) 40%, transparent), 0 0 4px 1px color-mix(in srgb, var(--sun) 35%, transparent); }
+  50% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--sun) 0%, transparent), 0 0 14px 5px color-mix(in srgb, var(--sun) 55%, transparent); }
+}
+
+
+/* ---- Scroll motion ---- */
+/* 1. Sections rise in (only hidden once the script has confirmed motion is allowed) */
+.motion .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.motion .reveal.is-in { opacity: 1; transform: none; }
+
+/* 2. Career progress line */
+.eras { position: relative; padding-left: 28px; }
+.track { position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px; background: var(--line); border-radius: 2px; }
+.track-fill { width: 100%; height: 0; background: var(--accent); border-radius: 2px; }
+.era-h { position: relative; }
+.era-h::before, .early h3::before {
+  content: ""; position: absolute; left: -28px; top: 4px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--line); box-sizing: border-box; transition: background .3s, border-color .3s;
+}
+.early h3 { position: relative; }
+.era-h h3 { transition: color .3s; }
+.lit.era-h::before, .lit.early h3::before { background: var(--accent); border-color: var(--accent); }
+.lit.era-h h3 { color: var(--accent); }
+
+/* 3. Condensed header */
+.mini {
+  position: fixed; inset: 0 0 auto; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line);
+  padding-top: env(safe-area-inset-top, 0px);
+  transform: translateY(-110%); transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.mini.show { transform: none; }
+.mini-in {
+  max-width: 780px; margin: 0 auto; display: flex; align-items: center; gap: 12px;
+  padding-block: 10px; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+.mini-face { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+.mini-name { font-family: var(--font-display); font-weight: 700; font-size: 16px; }
+.mini-role { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+/* 4. Photo depth */
+.portrait img { will-change: transform; }
+.family { overflow: hidden; border-radius: 12px; }
+.family img { border-radius: 0; transform: scale(1.08); will-change: transform; }
+@media (max-width: 640px) {
+  .eras { padding-left: 24px; }
+  .era-h::before, .early h3::before { left: -24px; }
+  .track { left: 4px; }
+}
 
 @media (max-width: 640px) {
   .wrap { padding-block: 40px 32px; gap: 60px; }
@@ -253,6 +304,13 @@ footer .light::before { content: ""; width: 8px; height: 8px; border-radius: 50%
 </head>
 <body>
 
+<div class="mini" aria-hidden="true">
+  <div class="mini-in">
+    <img class="mini-face" alt="" width="32" height="32">
+    <span class="mini-name">Jason Yau</span>
+    <span class="mini-role">Chief Business Officer &middot; Salesforce</span>
+  </div>
+</div>
 <div class="wrap">
   <header class="top">
     <a class="mark" href="#top" aria-label="Jason K Yau, home">JY</a>
@@ -302,6 +360,7 @@ footer .light::before { content: ""; width: 8px; height: 8px; border-radius: 50%
   <section id="experience" aria-labelledby="exp-h">
     <h2 id="exp-h">Experience</h2>
     <div class="body eras">
+      <div class="track" aria-hidden="true"><div class="track-fill"></div></div>
 
       <div class="era">
         <div class="era-h"><h3>Enterprise &amp; AI</h3><span>2024 – Now</span></div>
@@ -421,6 +480,62 @@ footer .light::before { content: ""; width: 8px; height: 8px; border-radius: 50%
     <span>&copy; 2026 Jason K Yau &middot; Waimea, Big Island</span>
   </footer>
 </div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  var hero = document.querySelector('.hero');
+  var face = document.querySelector('.portrait img');
+  var fam = document.querySelector('.family img');
+  var eras = document.querySelector('.eras');
+  var fill = document.querySelector('.track-fill');
+  var marks = Array.prototype.slice.call(document.querySelectorAll('.era-h, .early h3'));
+  var mini = document.querySelector('.mini');
+  if (face) mini.querySelector('.mini-face').src = face.src;
+
+  // 1. Reveal
+  if (!reduce && 'IntersectionObserver' in window) {
+    var items = document.querySelectorAll('section, .roles > li, .early, .highlights li');
+    Array.prototype.forEach.call(items, function (el) { el.classList.add('reveal'); });
+    root.classList.add('motion');
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    Array.prototype.forEach.call(items, function (el) { io.observe(el); });
+  }
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var vh = window.innerHeight;
+    // 2. Progress line: fills as the viewport's 60% line moves through the Experience section
+    if (eras && fill) {
+      var r = eras.getBoundingClientRect(), mark = vh * 0.6;
+      var p = Math.max(0, Math.min(1, (mark - r.top) / r.height));
+      fill.style.height = (p * 100) + '%';
+      marks.forEach(function (m) { m.classList.toggle('lit', m.getBoundingClientRect().top < mark); });
+    }
+    // 3. Condensed header after the hero has scrolled away
+    if (hero) mini.classList.toggle('show', hero.getBoundingClientRect().bottom < 0);
+    // 4. Photo depth
+    if (!reduce) {
+      if (face) { var y = Math.min(window.scrollY, vh); face.style.transform = window.innerWidth > 640 ? 'translateY(' + (y * 0.12).toFixed(1) + 'px)' : ''; }
+      if (fam) {
+        var fr = fam.parentNode.getBoundingClientRect();
+        var off = ((fr.top + fr.height / 2) - vh / 2) * -0.06;
+        fam.style.transform = 'scale(1.08) translateY(' + off.toFixed(1) + 'px)';
+      }
+    }
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+</script>
+
+
 
 
 </body>
